@@ -1,5 +1,5 @@
 /*
- * SLEEPY BLINK EXAMPLE
+ * TINY SNORE EXAMPLE
  * by Connor Nishijima
  * 
  * -------------------------------------------------------------------
@@ -45,8 +45,6 @@
  */
 
 #include "tinysnore.h" // Include TinySnore Library
-TinySnore tiny;        // Redefine "TinySnore" to "tiny" to save time
-
 #define led 4 // Pin flashing LED is on
 
 void setup() {
@@ -55,7 +53,7 @@ void setup() {
 
 void loop() {
   digitalWrite(led, HIGH);
-  delay(5000);
+  delay(5000); // Idles for 5 seconds, using full power
   digitalWrite(led, LOW);
-  tiny.snore(5000); // Sleeps for 5 seconds, then resumes from here
+  snore(5000); // Deep sleeps for 5 seconds, (low power) then resumes from here
 }
