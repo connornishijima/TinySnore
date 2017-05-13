@@ -1,0 +1,22 @@
+{
+  "name": "TinySnore",
+  "description": "Library for putting ATtiny25/45/85 to timed sleep in one line of code!",
+  "keywords": "attiny25,attiny45,attiny85,sleep,snore,tiny,watchdog",
+  "authors":
+  {
+    "name": "Connor Nishijima",
+    "email": "connornishijima@gmail.com"
+  },
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/connornishijima/TinySnore.git"
+  },
+  "version": "1.0.0",
+  "examples": "examples/*.ino",
+  "frameworks": "arduino",
+  "platforms":
+  [
+    "atmelavr"
+  ]
+}
