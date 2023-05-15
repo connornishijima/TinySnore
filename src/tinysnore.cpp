@@ -109,5 +109,5 @@ void ts_set_sleep(int ii){
 
 // Watchdog Interrupt Service / is executed when watchdog timed out
 ISR(WDT_vect) {
-  // NOTHING HERE BY DEFAULT
+  wdt_disable();
 }
