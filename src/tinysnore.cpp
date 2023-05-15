@@ -98,7 +98,11 @@ void ts_set_sleep(int ii){
   WDTCR |= (1 << WDCE) | (1 << WDE);
   // set new watchdog timeout value
   WDTCR = bb;
+#if defined(__AVR_ATtiny13__)
+  WDTCR |= _BV(WDTIE);
+#else
   WDTCR |= _BV(WDIE);
+#endif
 }
 
 // Watchdog Interrupt Service / is executed when watchdog timed out
