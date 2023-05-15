@@ -17,8 +17,10 @@ void snore(uint32_t snore_time){
   cbi(ADCSRA, ADEN);                   // switch Analog to Digitalconverter OFF
 
   set_sleep_mode(SLEEP_MODE_PWR_DOWN); // sleep mode is set here
+  cli();
   sleep_enable();
   sleep_bod_disable();
+  sei();
 
   while (snore_time > 0) {
     if (snore_time >= 8000) {
