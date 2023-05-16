@@ -17,8 +17,10 @@ void snore(uint32_t snore_time){
   cbi(ADCSRA, ADEN);                   // switch Analog to Digitalconverter OFF
 
   set_sleep_mode(SLEEP_MODE_PWR_DOWN); // sleep mode is set here
+  cli();
   sleep_enable();
   sleep_bod_disable();
+  sei();
 
   while (snore_time > 0) {
     if (snore_time >= 8000) {
@@ -98,10 +100,14 @@ void ts_set_sleep(int ii){
   WDTCR |= (1 << WDCE) | (1 << WDE);
   // set new watchdog timeout value
   WDTCR = bb;
+#if defined(__AVR_ATtiny13__)
+  WDTCR |= _BV(WDTIE);
+#else
   WDTCR |= _BV(WDIE);
+#endif
 }
 
 // Watchdog Interrupt Service / is executed when watchdog timed out
 ISR(WDT_vect) {
-  // NOTHING HERE BY DEFAULT
+  wdt_disable();
 }
